@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, LayoutGrid, Store, MessageSquareShare } from "lucide-react";
 
 enum PopularPlan {
   NO = 0,
@@ -21,111 +21,98 @@ interface PlanProps {
   description: string;
   buttonText: string;
   benefitList: string[];
+  icon: React.ElementType;
 }
 
 const plans: PlanProps[] = [
   {
-    title: "Free",
+    title: "Software",
     popular: 0,
-    price: 0,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+    price: 49,
+    description: "Automated Financial Reporting",
+    buttonText: "Get Started",
     benefitList: [
-      "1 team member",
-      "1 GB storage",
-      "Upto 2 pages",
-      "Community support",
-      "AI assistance",
+      "Automated financial reporting",
+      "Real-time data visualization",
+      "Basic analytics",
     ],
+    icon: LayoutGrid,
   },
   {
-    title: "Premium",
+    title: "Financial consulting",
     popular: 1,
-    price: 45,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get starterd",
+    price: 299,
+    description: "Financial Health Checkup, KPIs and more + software package included at a lower price than purchasing separately",
+    buttonText: "Get Started",
     benefitList: [
-      "4 team member",
-      "8 GB storage",
-      "Upto 6 pages",
-      "Priority support",
-      "AI assistance",
+      "All Software features",
+      "Financial health checkup",
+      "KPI analysis",
+      "Customized financial strategies",
     ],
+    icon: Store,
   },
   {
-    title: "Enterprise",
+    title: "Ongoing Consulting",
     popular: 0,
-    price: 120,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    price: 499,
+    description: "Starting at $499/month - Monthly consultation with financial experts, personalized strategies, and optimization of financial processes",
+    buttonText: "Contact Us",
     benefitList: [
-      "10 team member",
-      "20 GB storage",
-      "Upto 10 pages",
-      "Phone & email support",
-      "AI assistance",
+      "All Financial consulting features",
+      "Monthly expert consultations",
+      "Personalized financial strategies",
+      "Process optimization",
     ],
+    icon: MessageSquareShare,
   },
 ];
 
 export const PricingSection = () => {
   return (
     <section className="container py-24 sm:py-32">
-      <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-        Pricing
+      <h2 className="text-3xl md:text-4xl text-center font-bold mb-12">
+        Our services
       </h2>
 
-      <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        Get unlimitted access
-      </h2>
-
-      <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14">
-        Lorem ipsum dolor sit amet consectetur adipisicing reiciendis.
-      </h3>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         {plans.map(
-          ({ title, popular, price, description, buttonText, benefitList }) => (
+          ({ title, popular, price, description, buttonText, benefitList, icon: Icon }) => (
             <Card
               key={title}
               className={
                 popular === PopularPlan?.YES
-                  ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]"
+                  ? "border-[1.5px] border-primary"
                   : ""
               }
             >
-              <CardHeader>
-                <CardTitle className="pb-2">{title}</CardTitle>
-
-                <CardDescription className="pb-4">
+              <CardHeader className="text-center">
+                <div className="rounded-full bg-primary/10 p-4 inline-flex items-center justify-center w-24 h-24 mx-auto mb-4">
+                  <Icon size={48} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl mb-2">{title}</CardTitle>
+                <CardDescription className="h-20 flex items-center justify-center">
                   {description}
                 </CardDescription>
-
-                <div>
-                  <span className="text-3xl font-bold">${price}</span>
-                  <span className="text-muted-foreground"> /month</span>
-                </div>
               </CardHeader>
 
-              <CardContent className="flex">
+              <CardContent>
+                <div className="text-center mb-6">
+                  <span className="text-4xl font-bold text-primary">${price}</span>
+                </div>
                 <div className="space-y-4">
                   {benefitList.map((benefit) => (
-                    <span key={benefit} className="flex">
-                      <Check className="text-primary mr-2" />
-                      <h3>{benefit}</h3>
-                    </span>
+                    <div key={benefit} className="flex items-center">
+                      <Check className="text-primary mr-2 flex-shrink-0" />
+                      <span>{benefit}</span>
+                    </div>
                   ))}
                 </div>
               </CardContent>
 
               <CardFooter>
                 <Button
-                  variant={
-                    popular === PopularPlan?.YES ? "default" : "secondary"
-                  }
+                  variant={popular === PopularPlan?.YES ? "default" : "outline"}
                   className="w-full"
                 >
                   {buttonText}

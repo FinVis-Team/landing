@@ -11,27 +11,27 @@ interface BenefitsProps {
 const benefitList: BenefitsProps[] = [
   {
     icon: "Blocks",
-    title: "Build Brand Trust",
+    title: "Integration Hub",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Integration, scalability, and data security.",
   },
   {
     icon: "LineChart",
-    title: "More Leads",
+    title: "Insight Generator",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
+      "Fully automated generation of financial reports.",
   },
   {
     icon: "Wallet",
-    title: "Higher Conversions",
+    title: "Value Optimizer",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
+      "Maximize ROI with competitive pricing. Premium features at affordable costs for optimal financial visualization value.",
   },
   {
     icon: "Sparkle",
-    title: "Test Marketing Ideas",
+    title: "Data Visualizer",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "User-friendly UI and comprehensive visualization of data.",
   },
 ];
 
@@ -43,12 +43,11 @@ export const BenefitsSection = () => {
           <h2 className="text-lg text-primary mb-2 tracking-wider">Benefits</h2>
 
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Your Shortcut to Success
+            Empower Decision-Making
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non
-            ducimus reprehenderit architecto rerum similique facere odit
-            deleniti necessitatibus quo quae.
+            FinVis transforms financial data interaction, offering powerful tools to streamline workflows and enhance understanding.
+            In today&apos;s business landscape, FinVis is your key to unlocking data-driven success.
           </p>
         </div>
 

@@ -10,40 +10,40 @@ interface FeaturesProps {
 
 const featureList: FeaturesProps[] = [
   {
-    icon: "TabletSmartphone",
-    title: "Mobile Friendly",
+    icon: "Blocks",
+    title: "Seamless Integration",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
+      "FinVis excels in handling complex integration challenges, ensuring smooth data flow from various sources into a unified platform.",
   },
   {
-    icon: "BadgeCheck",
-    title: "Social Proof",
+    icon: "Sparkles",
+    title: "Intuitive User Experience",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+      "Our user-friendly interface sets us apart, making financial data visualization accessible to users of all skill levels.",
   },
   {
-    icon: "Goal",
-    title: "Targeted Content",
+    icon: "LineChart",
+    title: "Advanced Automated Reporting",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
+      "FinVis offers comprehensive automated reports with deeper insights and customization options compared to competitors.",
   },
   {
-    icon: "PictureInPicture",
-    title: "Strong Visuals",
+    icon: "Palette",
+    title: "Unparalleled Customization",
     description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+      "Unlike others, we provide extensive customization capabilities, allowing users to tailor visualizations to their specific needs.",
   },
   {
-    icon: "MousePointerClick",
-    title: "Clear CTA",
+    icon: "Shield",
+    title: "Enhanced Data Security",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      "We prioritize data protection with advanced security measures, ensuring your financial information remains confidential and secure.",
   },
   {
-    icon: "Newspaper",
-    title: "Clear Headline",
+    icon: "Zap",
+    title: "Real-Time Analytics",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      "FinVis delivers instant insights with real-time data processing, enabling quick decision-making in fast-paced financial environments.",
   },
 ];
 
@@ -55,37 +55,33 @@ export const FeaturesSection = () => {
       </h2>
 
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        What Makes Us Different
+        How We Stand Out
       </h2>
 
-      <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-        fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio
-        facere tenetur.
+      <h3 className="md:w-3/4 mx-auto text-xl text-center text-muted-foreground mb-12">
+        At FinVis, we&apos;ve reimagined financial data visualization. Our unique features
+        address complex challenges, providing you with a powerful, user-friendly platform
+        that outperforms the competition in key areas.
       </h3>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {featureList.map(({ icon, title, description }) => (
-          <div key={title}>
-            <Card className="h-full bg-background border-0 shadow-none">
-              <CardHeader className="flex justify-center items-center">
-                <div className="bg-primary/20 p-2 rounded-full ring-8 ring-primary/10 mb-4">
-                  <Icon
-                    name={icon as keyof typeof icons}
-                    size={24}
-                    color="hsl(var(--primary))"
-                    className="text-primary"
-                  />
-                </div>
-
-                <CardTitle>{title}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="text-muted-foreground text-center">
-                {description}
-              </CardContent>
-            </Card>
-          </div>
+          <Card key={title} className="bg-card hover:bg-accent transition-colors duration-300">
+            <CardHeader className="flex flex-col items-center text-center">
+              <div className="bg-primary/10 p-3 rounded-full mb-4">
+                <Icon
+                  color="hsl(var(--primary))"
+                  name={icon as keyof typeof icons}
+                  size={28}
+                  className="text-primary"
+                />
+              </div>
+              <CardTitle className="text-xl mb-2">{title}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-muted-foreground text-center">
+              {description}
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>
