@@ -1,3 +1,4 @@
+import { Container } from "@/components/ui/container";
 import GithubIcon from "@/components/icons/github-icon";
 import LinkedInIcon from "@/components/icons/linkedin-icon";
 import XIcon from "@/components/icons/x-icon";
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+
 interface TeamProps {
   imageUrl: string;
   firstName: string;
@@ -21,6 +23,7 @@ interface SocialNetworkProps {
   name: string;
   url: string;
 }
+
 export const TeamSection = () => {
   const teamList: TeamProps[] = [
     {
@@ -45,7 +48,7 @@ export const TeamSection = () => {
     },
     {
       imageUrl: "/team/husan-musa.jpg",
-      firstName: "husan",
+      firstName: "Husan",
       lastName: "Musa",
       positions: ["CTO"],
       socialNetworks: [
@@ -78,7 +81,7 @@ export const TeamSection = () => {
     {
       imageUrl: "/team/muhammadumar-fozilov.png",
       firstName: "Muhammadumar",
-      lastName: "Fozilov",
+      lastName: "F",
       positions: ["Financial Expert", "Audit"],
       socialNetworks: [
         {
@@ -108,70 +111,65 @@ export const TeamSection = () => {
   };
 
   return (
-    <section id="team" className="container lg:w-[75%] py-24 sm:py-32">
-      <div className="text-center mb-8">
-        <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-          Team
-        </h2>
+    <Container>
+      <section id="team" className="py-24 sm:py-32">
+        <div className="text-center mb-12">
+          <h2 className="text-lg text-primary mb-2 tracking-wider">
+            Team
+          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Finators Team
+          </h2>
+        </div>
 
-        <h2 className="text-3xl md:text-4xl text-center font-bold">
-          Finators Team
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {teamList.map(
-          (
-            { imageUrl, firstName, lastName, positions, socialNetworks },
-            index
-          ) => (
-            <Card
-              key={index}
-              className="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg"
-            >
-              <CardHeader className="p-0 gap-0">
-                <div className="h-full overflow-hidden">
-                  <Image
-                    src={imageUrl}
-                    alt=""
-                    width={300}
-                    height={300}
-                    className="w-full aspect-square object-cover saturate-0 transition-all duration-200 ease-linear size-full group-hover/hoverimg:saturate-100 group-hover/hoverimg:scale-[1.01]"
-                  />
-                </div>
-                <CardTitle className="py-6 pb-4 px-6">
-                  {firstName}
-                  <span className="text-primary ml-2">{lastName}</span>
-                </CardTitle>
-              </CardHeader>
-              {positions.map((position, index) => (
-                <CardContent
-                  key={index}
-                  className={`pb-0 text-muted-foreground ${
-                    index === positions.length - 1 && "pb-6"
-                  }`}
-                >
-                  {position}
-                  {index < positions.length - 1 && <span>,</span>}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {teamList.map(
+            ({ imageUrl, firstName, lastName, positions, socialNetworks }, index) => (
+              <Card
+                key={index}
+                className="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg"
+              >
+                <CardHeader className="p-0">
+                  <div className="aspect-square overflow-hidden">
+                    <Image
+                      src={imageUrl}
+                      alt={`${firstName} ${lastName}`}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover saturate-0 transition-all duration-200 ease-linear group-hover/hoverimg:saturate-100 group-hover/hoverimg:scale-[1.01]"
+                    />
+                  </div>
+                  <CardTitle className="py-4 px-6">
+                    {firstName}
+                    <span className="text-primary ml-2">{lastName}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  {positions.map((position, idx) => (
+                    <p key={idx} className="text-muted-foreground">
+                      {position}
+                      {idx < positions.length - 1 && ", "}
+                    </p>
+                  ))}
                 </CardContent>
-              ))}
-
-              <CardFooter className="space-x-4 mt-auto">
-                {socialNetworks.map(({ name, url }, index) => (
-                  <Link
-                    key={index}
-                    href={url}
-                    target="_blank"
-                    className="hover:opacity-80 transition-all"
-                  >
-                    {socialIcon(name)}
-                  </Link>
-                ))}
-              </CardFooter>
-            </Card>
-          )
-        )}
-      </div>
-    </section>
+                <CardFooter className="flex justify-start space-x-4 mt-auto pt-4">
+                  {socialNetworks.map(({ name, url }, idx) => (
+                    <Link
+                      key={idx}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-80 transition-all"
+                    >
+                      {socialIcon(name)}
+                    </Link>
+                  ))}
+                </CardFooter>
+              </Card>
+            )
+          )}
+        </div>
+      </section>
+    </Container>
   );
 };
