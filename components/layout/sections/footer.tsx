@@ -2,10 +2,11 @@ import { Separator } from "@/components/ui/separator";
 import { ChevronsDownIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { Container } from "@/components/ui/container";
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="container py-24 sm:py-32">
+    <Container>
+    <footer id="footer" className="container py-12 sm:py-24">
       <div className="p-10 bg-card border border-secondary rounded-2xl">
         <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-6 gap-x-12 gap-y-8">
           <div className="col-span-full xl:col-span-4">
@@ -24,13 +25,13 @@ export const FooterSection = () => {
           <div className="flex flex-col gap-2">
             <h3 className="font-bold text-lg">Contact</h3>
             <div>
-              <Link href="#" className="opacity-60 hover:opacity-100">
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary relative after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-center">
                 Github
               </Link>
             </div>
 
             <div>
-              <Link href="#" className="opacity-60 hover:opacity-100">
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary relative after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-center">
                 Twitter
               </Link>
             </div>
@@ -39,19 +40,13 @@ export const FooterSection = () => {
           <div className="flex flex-col gap-2">
             <h3 className="font-bold text-lg">Help</h3>
             <div>
-              <Link href="#" className="opacity-60 hover:opacity-100">
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary relative after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-center">
                 Contact Us
               </Link>
             </div>
 
             <div>
-              <Link href="#" className="opacity-60 hover:opacity-100">
-                FAQ
-              </Link>
-            </div>
-
-            <div>
-              <Link href="#" className="opacity-60 hover:opacity-100">
+              <Link href="#" className="opacity-60 hover:opacity-100 hover:text-primary relative after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-center">
                 Feedback
               </Link>
             </div>
@@ -61,17 +56,12 @@ export const FooterSection = () => {
         <Separator className="my-6" />
         <section className="">
           <h3 className="">
-            &copy; 2024 Developed by
-            <Link
-              target="_blank"
-              href="https://github.com/ubranch"
-              className="text-primary transition-all border-primary hover:border-b-2 ml-1"
-            >
-              Inspire
-            </Link>
+            &copy; 2024
+
           </h3>
         </section>
       </div>
     </footer>
+    </Container>
   );
 };

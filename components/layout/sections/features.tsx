@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { icons } from "lucide-react";
+import { Container } from "@/components/ui/container"
 
 interface FeaturesProps {
   icon: string;
@@ -49,7 +50,8 @@ const featureList: FeaturesProps[] = [
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="container py-24 sm:py-32">
+    <Container>
+    <section id="features" className="container py-12 sm:py-24">
       <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
         Features
       </h2>
@@ -84,6 +86,7 @@ export const FeaturesSection = () => {
           </Card>
         ))}
       </div>
-    </section>
+      </section>
+    </Container>
   );
 };

@@ -66,7 +66,7 @@ export const TeamSection = () => {
       imageUrl: "/team/ubranch.png",
       firstName: "Ilhom",
       lastName: "Ismoilov",
-      positions: ["AI Expert", "Creator of this website"],
+      positions: ["AI Enthusiast", "Creator of this website"],
       socialNetworks: [
         {
           name: "LinkedIn",
@@ -74,6 +74,10 @@ export const TeamSection = () => {
         },
         {
           name: "Github",
+          url: "/#",
+        },
+        {
+          name: "X",
           url: "/#",
         },
       ],
@@ -112,7 +116,7 @@ export const TeamSection = () => {
 
   return (
     <Container>
-      <section id="team" className="py-24 sm:py-32">
+      <section id="team" className="py-12 sm:py-24">
         <div className="text-center mb-12">
           <h2 className="text-lg text-primary mb-2 tracking-wider">
             Team

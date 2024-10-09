@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check, LayoutGrid, Store, MessageSquareShare } from "lucide-react";
+import { Container } from "@/components/ui/container";
 
 enum PopularPlan {
   NO = 0,
@@ -70,58 +71,60 @@ const plans: PlanProps[] = [
 
 export const PricingSection = () => {
   return (
-    <section className="container py-24 sm:py-32">
-      <h2 className="text-3xl md:text-4xl text-center font-bold mb-12">
-        Our services
-      </h2>
+    <Container>
+      <section id="pricing" className="container py-12 sm:py-24">
+        <h2 className="text-3xl md:text-4xl text-center font-bold mb-12">
+          Our services
+        </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-        {plans.map(
-          ({ title, popular, price, description, buttonText, benefitList, icon: Icon }) => (
-            <Card
-              key={title}
-              className={
-                popular === PopularPlan?.YES
-                  ? "border-[1.5px] border-primary"
-                  : ""
-              }
-            >
-              <CardHeader className="text-center">
-                <div className="rounded-full bg-primary/10 p-4 inline-flex items-center justify-center w-24 h-24 mx-auto mb-4">
-                  <Icon size={48} className="text-primary" />
-                </div>
-                <CardTitle className="text-xl mb-2">{title}</CardTitle>
-                <CardDescription className="h-20 flex items-center justify-center">
-                  {description}
-                </CardDescription>
-              </CardHeader>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          {plans.map(
+            ({ title, popular, price, description, buttonText, benefitList, icon: Icon }) => (
+              <Card
+                key={title}
+                className={`flex flex-col ${
+                  popular === PopularPlan?.YES
+                    ? "border-[1.5px] border-primary"
+                    : ""
+                }`}
+              >
+                <CardHeader className="text-center pt-8"> {/* Added pt-8 for top padding */}
+                  <div className="rounded-full bg-primary/10 p-3 inline-flex items-center justify-center w-20 h-20 mx-auto mb-4"> {/* Reduced size to w-20 h-20 and p-3 */}
+                    <Icon size={36} className="text-primary" /> {/* Reduced icon size to 36 */}
+                  </div>
+                  <CardTitle className="text-xl mb-2">{title}</CardTitle>
+                  <CardDescription className="h-20 flex items-center justify-center">
+                    {description}
+                  </CardDescription>
+                </CardHeader>
 
-              <CardContent>
-                <div className="text-center mb-6">
-                  <span className="text-4xl font-bold text-primary">${price}</span>
-                </div>
-                <div className="space-y-4">
-                  {benefitList.map((benefit) => (
-                    <div key={benefit} className="flex items-center">
-                      <Check className="text-primary mr-2 flex-shrink-0" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
+                <CardContent className="flex-grow">
+                  <div className="text-center mb-6">
+                    <span className="text-4xl font-bold text-primary">${price}</span>
+                  </div>
+                  <div className="space-y-4">
+                    {benefitList.map((benefit) => (
+                      <div key={benefit} className="flex items-center">
+                        <Check className="text-primary mr-2 flex-shrink-0" />
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
 
-              <CardFooter>
-                <Button
-                  variant={popular === PopularPlan?.YES ? "default" : "outline"}
-                  className="w-full"
-                >
-                  {buttonText}
-                </Button>
-              </CardFooter>
-            </Card>
-          )
-        )}
-      </div>
-    </section>
+                <CardFooter className="mt-auto">
+                  <Button
+                    variant={popular === PopularPlan?.YES ? "default" : "outline"}
+                    className="w-full"
+                  >
+                    {buttonText}
+                  </Button>
+                </CardFooter>
+              </Card>
+            )
+          )}
+        </div>
+      </section>
+    </Container>
   );
 };
