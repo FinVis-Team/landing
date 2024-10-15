@@ -21,12 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background pt-24", inter.className)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <Navbar />
           <main className="flex-grow">
             <Container>{children}</Container>
