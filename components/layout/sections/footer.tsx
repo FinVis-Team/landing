@@ -13,12 +13,12 @@ export const FooterSection = () => {
             <Link href="#" className="flex font-bold items-center">
               <Image
                 src="/favicon.png"
-                alt="Finators Logo"
+                alt="FinVis Logo"
                 width={32}
                 height={32}
                 className="mr-2 rounded-lg"
                   />
-              <h3 className="text-2xl">Finators</h3>
+              <h3 className="text-2xl">FinVis</h3>
             </Link>
           </div>
 

@@ -42,12 +42,12 @@ export const Navbar = () => {
           <Link href="/" className="font-bold text-lg flex items-center">
             <Image
               src="/favicon.png"
-              alt="Finators Logo"
+              alt="FinVis Logo"
               width={32}
               height={32}
               className="mr-2 rounded-lg"
             />
-            Finators
+            FinVis
           </Link>
           {/* Mobile menu */}
           <div className="flex items-center lg:hidden">
@@ -68,12 +68,12 @@ export const Navbar = () => {
                       <Link href="/" className="flex items-center">
                         <Image
                           src="/favicon.png"
-                          alt="Finators Logo"
+                          alt="FinVis Logo"
                           width={36}
                           height={36}
                           className="mr-2 rounded-lg"
                         />
-                        Finators
+                        FinVis
                       </Link>
                     </SheetTitle>
                   </SheetHeader>

@@ -122,7 +122,7 @@ export const TeamSection = () => {
             Team
           </h2>
           <h2 className="text-3xl md:text-4xl font-bold">
-            Finators Team
+            FinVis Team
           </h2>
         </div>
 

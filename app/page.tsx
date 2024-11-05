@@ -10,19 +10,19 @@ import { PricingSection } from "@/components/layout/sections/pricing";
 import { TeamSection } from "@/components/layout/sections/team";
 
 export const metadata = {
-  title: "Finators",
+  title: "FinVis",
   description: "Intuitive Visualization of Financial Reports",
   openGraph: {
     type: "website",
     url: "https://finvis-landing.vercel.app",
-    title: "Finators",
+    title: "FinVis",
     description: "Financial Visualization Software",
     images: [
       {
         url: "https://res.cloudinary.com/dbzv9xfjp/image/upload/v1723499276/og-images/shadcn-vue.jpg",
         width: 1200,
         height: 630,
-        alt: "Finators",
+        alt: "FinVis",
       },
     ],
   }
